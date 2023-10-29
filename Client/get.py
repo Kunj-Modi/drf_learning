@@ -1,7 +1,7 @@
 import requests
 
-endpoint = 'http://localhost:8000/'
+endpoint = 'http://localhost:8000/student'
 
-response = requests.get(endpoint, params={'abc': 1234}, json={'name': 'kunj', 'code': 1234})
+response = requests.get(endpoint)
 
 print(response.json())

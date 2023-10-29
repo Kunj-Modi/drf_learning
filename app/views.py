@@ -6,7 +6,6 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def hey(request, *args, **kwargs):
-    print(args, kwargs)
     body = request.body
     data = {}
     try:
