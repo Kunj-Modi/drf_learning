@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/drf_learning.iml" filepath="$PROJECT_DIR$/.idea/drf_learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../safe-chat/.idea/safe-chat.iml" filepath="$PROJECT_DIR$/../safe-chat/.idea/safe-chat.iml" />
     </modules>
   </component>
 </project>
