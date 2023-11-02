@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from rest_framework.response import Response
-from rest_framework import generics
+from rest_framework import generics, mixins
 
 from .models import Department, Employee
 from .serializers import DepSerializer, EmpSerializer
@@ -23,9 +21,15 @@ class EmpCreate(generics.CreateAPIView):
 emp_create = EmpCreate.as_view()
 
 
-class DepCreate(generics.CreateAPIView):
+class DepCreate(
+    mixins.CreateModelMixin,
+    generics.GenericAPIView
+):
     queryset = Department.objects.all()
     serializer_class = DepSerializer
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 
 
 dep_create = DepCreate.as_view()

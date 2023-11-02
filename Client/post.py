@@ -1,8 +1,8 @@
 import requests
 
-endpoint = 'http://localhost:8000/employee/create_emp/'
+endpoint = 'http://localhost:8000/employee/create_dep/'
 
-response = requests.post(endpoint, json={'emp_id': 18, 'emp_name': 'kriya', 'emp_dep': 3})
+response = requests.post(endpoint, json={'dep_id': 7, 'dep_name': 'EXTC'})
 
 try:
     print(response.json())
