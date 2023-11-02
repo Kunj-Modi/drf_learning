@@ -6,9 +6,16 @@ from .serializers import StudentSerializer
 
 
 @api_view(['GET'])
-def student(request, *args, **kwargs):
+def random(request, *args, **kwargs):
     instance = Student.objects.all().order_by('?').first()
     data = StudentSerializer(instance).data
+    return Response(data)
+
+
+@api_view(['GET'])
+def get_all(request, *args, **kwargs):
+    instance = Student.objects.all()
+    data = StudentSerializer(instance, many=True).data
     return Response(data)
 
 
