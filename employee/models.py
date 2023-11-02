@@ -13,6 +13,7 @@ class Employee(models.Model):
     emp_id = models.IntegerField(primary_key=True)
     emp_name = models.CharField(max_length=20)
     emp_dep = models.ForeignKey(to=Department, on_delete=models.CASCADE)
+    emp_des = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return f"{self.emp_id} {self.emp_name} {self.emp_dep}"

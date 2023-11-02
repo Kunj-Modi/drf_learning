@@ -2,7 +2,7 @@ import requests
 
 endpoint = 'http://localhost:8000/employee/create_emp/'
 
-response = requests.post(endpoint, json={'emp_id': 15, 'emp_name': 'hitansh', 'emp_dep': 5})
+response = requests.post(endpoint, json={'emp_id': 18, 'emp_name': 'kriya', 'emp_dep': 3})
 
 try:
     print(response.json())
