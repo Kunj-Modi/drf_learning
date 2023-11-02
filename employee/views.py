@@ -6,17 +6,17 @@ from .models import Department, Employee
 from .serializers import DepSerializer, EmpSerializer
 
 
-class EmpRetrieve(generics.RetrieveAPIView):
+class EmpCreate(generics.CreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmpSerializer
 
 
-emp_retrieve = EmpRetrieve.as_view()
+emp_create = EmpCreate.as_view()
 
 
-class DepRetrieve(generics.RetrieveAPIView):
+class DepCreate(generics.CreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepSerializer
 
 
-dep_retrieve = DepRetrieve.as_view()
+dep_create = DepCreate.as_view()
