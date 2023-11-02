@@ -1,4 +1,5 @@
 from rest_framework import generics, mixins
+from rest_framework.pagination import PageNumberPagination
 
 from .models import Department, Employee
 from .serializers import DepSerializer, EmpSerializer
@@ -19,6 +20,23 @@ class EmpCreate(generics.CreateAPIView):
 
 
 emp_create = EmpCreate.as_view()
+
+
+class EmpPage(PageNumberPagination):
+    page_size = 10
+    page_query_param = 'p'
+    # If not set then it defaults to None and doesn't allow user to set page_size
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+
+
+class EmpList(generics.ListAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmpSerializer
+    pagination_class = EmpPage
+
+
+list_emp = EmpList.as_view()
 
 
 class DepCreate(
