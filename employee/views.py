@@ -1,5 +1,6 @@
 from rest_framework import generics, mixins
 from rest_framework.pagination import PageNumberPagination
+from rest_framework import permissions
 
 from .models import Department, Employee
 from .serializers import DepSerializer, EmpSerializer
@@ -8,6 +9,7 @@ from .serializers import DepSerializer, EmpSerializer
 class EmpCreate(generics.CreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmpSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         emp_id = serializer.validated_data.get('emp_id')
@@ -34,6 +36,7 @@ class EmpList(generics.ListAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmpSerializer
     pagination_class = EmpPage
+    permission_classes = [permissions.IsAuthenticated]
 
 
 list_emp = EmpList.as_view()
@@ -45,6 +48,7 @@ class DepCreate(
 ):
     queryset = Department.objects.all()
     serializer_class = DepSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
